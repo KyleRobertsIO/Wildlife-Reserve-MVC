@@ -1,0 +1,93 @@
+﻿#desktop-navigation-container {
+    padding: 15px 5px;
+    background-color: rgb(24, 100, 201);
+    position: fixed;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+#nav-link-list .link-wrapper {
+    margin: 5px 0px 0px 0px;
+}
+
+    #nav-link-list .link-wrapper:nth-child(1) {
+        margin: 0px 0px 0px 0px;
+    }
+
+#desktop-navigation-container .icon-wrapper {
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+    #desktop-navigation-container .icon-wrapper:hover {
+        background-color: rgb(17, 82, 167);
+        border-radius: 7px;
+        transition: 0.3s;
+    }
+
+    #desktop-navigation-container .icon-wrapper .nav-icon{
+        width: 30px; 
+        height: 30px;
+    }
+
+    #mobile-dropdown-button {
+        display: none;
+    }
+
+#mobile-dropdown-menu {
+    width: 100%;
+    position: fixed;
+    transform: translateY(60px);
+    background-color: rgb(17, 82, 167);
+    z-index: 1000;
+    display: none;
+}
+
+    #mobile-dropdown-menu #dropdown-link-list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        #mobile-dropdown-menu #dropdown-link-list .dropdown-link-wrapper {
+            padding: 10px;
+            width: calc(100% - 20px);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+            #mobile-dropdown-menu #dropdown-link-list .dropdown-link-wrapper:hover {
+                background-color: rgb(12, 71, 150);
+                transition: 0.3s;
+            }
+
+    #mobile-dropdown-menu .mobile-link {
+        width: 100%;
+        color: #fff;
+        text-decoration: none;
+        font-size: 25px;
+        font-weight: 700;
+        font-family: 'Poppins', sans-serif;
+        cursor: pointer;
+    }
+
+@media only screen and (max-width: 450px) {
+    #desktop-navigation-container {
+        width: 100%;
+        height: unset;
+        padding: 5px 15px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    #nav-link-list {
+        display: none;
+    }
+
+    #mobile-dropdown-button {
+        display: block;
+        float: right;
+        margin: 0px 25px 0px 0px;
+    }
+}
