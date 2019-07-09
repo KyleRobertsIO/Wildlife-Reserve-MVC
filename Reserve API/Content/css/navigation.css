@@ -16,20 +16,32 @@
     }
 
 #desktop-navigation-container .icon-wrapper {
-    padding: 10px 10px;
-    cursor: pointer;
+	padding: 10px 10px;
+	cursor: pointer;
+	transform: translateX(-60px);
+	animation: PopInIcons 0.5s linear forwards;
 }
 
-    #desktop-navigation-container .icon-wrapper:hover {
-        background-color: rgb(17, 82, 167);
-        border-radius: 7px;
-        transition: 0.3s;
-    }
+	#desktop-navigation-container .icon-wrapper:hover {
+		background-color: rgb(17, 82, 167);
+		border-radius: 7px;
+		transition: 0.3s;
+	}
 
     #desktop-navigation-container .icon-wrapper .nav-icon{
         width: 30px; 
         height: 30px;
     }
+
+	@keyframes PopInIcons{
+		0%{
+			transform: translateX(-60px);
+		}
+
+		100%{
+			transform: translateX(0px);
+		}
+	}
 
     #mobile-dropdown-button {
         display: none;
