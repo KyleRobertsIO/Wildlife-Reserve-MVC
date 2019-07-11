@@ -1,0 +1,48 @@
+﻿<nav id="desktop-navigation-container">
+	<ul id="nav-link-list">
+		<li class="link-wrapper">
+			<a href="@Url.Action("Index", "Home")">
+				<div class="icon-wrapper">
+					<img class="nav-icon" src="~/Content/assets/icons/home.svg" alt="home" />
+				</div>
+			</a>
+		</li>
+		<li class="link-wrapper">
+			<a href="@Url.Action("Animals", "Home")">
+				<div class="icon-wrapper">
+					<img class="nav-icon" src="~/Content/assets/icons/paw.svg" alt="animals" />
+				</div>
+			</a>
+		</li>
+		<li class="link-wrapper">
+			<a href="@Url.Action("Creatures", "Home")">
+				<div class="icon-wrapper">
+					<img class="nav-icon" src="~/Content/assets/icons/creature.svg" alt="creatures" />
+				</div>
+			</a>
+		</li>
+	</ul>
+	<div id="mobile-dropdown-button" class="icon-wrapper"
+		 onclick="mobileDropdownToggle()">
+		<img class="nav-icon" src="~/Content/assets/icons/bars.svg" />
+	</div>
+</nav>
+<div id="mobile-dropdown-menu">
+	<ul id="dropdown-link-list">
+		<a class="mobile-link" to="/">
+			<li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
+				Home
+			</li>
+		</a>
+		<a class="mobile-link" to="/animals">
+			<li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
+				Animals
+			</li>
+		</a>
+		<a class="mobile-link" to="/creatures">
+			<li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
+				Creatures
+			</li>
+		</a>
+	</ul>
+</div>

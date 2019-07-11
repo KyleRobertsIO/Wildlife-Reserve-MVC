@@ -6,88 +6,43 @@
     <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/home.css">
-    <title>Home</title>
+    <title>Reverse - @ViewBag.Title</title>
 </head>
 
 <body>
 
-    <nav id="desktop-navigation-container">
-        <ul id="nav-link-list">
-            <li class="link-wrapper">
-                <a href="#">
-                    <div class="icon-wrapper">
-                        <img class="nav-icon" src="~/Content/assets/icons/home.svg" alt="home" />
-                    </div>
-                </a>
-            </li>
-            <li class="link-wrapper">
-                <a href="#">
-                    <div class="icon-wrapper">
-                        <img class="nav-icon" src="~/Content/assets/icons/paw.svg" alt="animals" />
-                    </div>
-                </a>
-            </li>
-            <li class="link-wrapper">
-                <a href="#">
-                    <div class="icon-wrapper">
-                        <img class="nav-icon" src="~/Content/assets/icons/creature.svg" alt="creatures" />
-                    </div>
-                </a>
-            </li>
-        </ul>
-        <div id="mobile-dropdown-button" class="icon-wrapper"
-             onclick="mobileDropdownToggle()">
-            <img class="nav-icon" src="~/Content/assets/icons/bars.svg" />
-        </div>
-    </nav>
-    <div id="mobile-dropdown-menu">
-        <ul id="dropdown-link-list">
-            <a class="mobile-link" to="/">
-                <li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
-                    Home
-                </li>
-            </a>
-            <a class="mobile-link" to="/animals">
-                <li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
-                    Animals
-                </li>
-            </a>
-            <a class="mobile-link" to="/creatures">
-                <li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
-                    Creatures
-                </li>
-            </a>
-        </ul>
-    </div>
-    
+	@{
+		Html.RenderPartial("Main_Navigation_Bar");
+	}
 
-    <div id="page-container">
 
-        <div id="homepage-wrapper">
-            <header id="header-container">
-                <div id="image-wrapper">
-                    <div id="gradient-cover">
-                        <h1>Canada's Wilderness</h1>
-                    </div>
-                </div>
-            </header>
+	<div id="page-container">
 
-            <div id="content-section-container">
-                <p class="description-text">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                    took a galley of type and scrambled it to make a type specimen book. It has survived not
-                    only five centuries, but also the leap into electronic typesetting, remaining essentially
-                    unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-                    Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
-                    including versions of Lorem Ipsum.
-                </p>
-            </div>
+		<div id="homepage-wrapper">
+			<header id="header-container">
+				<div id="image-wrapper">
+					<div id="gradient-cover">
+						<h1>Canada's Wilderness</h1>
+					</div>
+				</div>
+			</header>
 
-        </div>
-    </div>
+			<div id="content-section-container">
+				<p class="description-text">
+					Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+					has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+					took a galley of type and scrambled it to make a type specimen book. It has survived not
+					only five centuries, but also the leap into electronic typesetting, remaining essentially
+					unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+					Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker
+					including versions of Lorem Ipsum.
+				</p>
+			</div>
 
-    <script src="~/Content/js/navigation.js"></script>
+		</div>
+	</div>
+
+	<script src="~/Content/js/navigation.js"></script>
 </body>
 
 </html>

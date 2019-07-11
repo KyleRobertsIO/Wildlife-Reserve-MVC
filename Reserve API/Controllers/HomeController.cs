@@ -10,9 +10,24 @@ namespace Reserve_API.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Home";
 
             return View();
         }
+
+        public ActionResult Animals()
+        {
+            ViewBag.Title = "Animals";
+
+            return View();
+        }
+
+        public ActionResult Creatures()
+        {
+            ViewBag.Title = "Creatures";
+
+            return View();
+        }
+
     }
 }

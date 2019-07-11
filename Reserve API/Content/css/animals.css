@@ -1,0 +1,99 @@
+﻿.animal-card-list-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+#animal-card-list {
+	width: 90%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 300px;
+	grid-gap: 20px;
+	margin: 0 auto;
+	padding: 50px 20px 20px 20px;
+}
+
+.animal-card-container{
+	display: grid;
+	opacity: 0;
+	height: 300px;
+	transform: translateY(20px);
+	grid-template-columns: 45% 55%;
+	grid-template-rows: auto;
+	box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+	border-radius: 10px;
+	animation: FadeInCard 1s forwards;
+}
+
+@keyframes FadeInCard{
+	0%{
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	100%{
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+.animal-card-container .card-image{
+	width: 100%;
+	height: 300px;
+	object-fit: cover;
+	border-top-left-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+.animal-card-info-container {
+	border-right: #ddd solid 1px;
+	border-bottom: #ddd solid 1px;
+	border-top: #ddd solid 1px;
+	padding: 30px;
+	max-height: calc(300px - 60px);
+	border-bottom-right-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+	.animal-card-info-container .animal-card-species{
+		font-size: 30px;
+		margin: 0px 0px 20px 0px;
+		font-weight: 600;
+		font-family: 'Poppins', sans-serif;
+	}
+
+	.animal-card-info-container .animal-card-desc {
+		font-size: 20px;
+		font-family: 'Lato', sans-serif;
+		line-height: 1.2;
+	}
+
+@media only screen and (max-width: 1200px){
+	#animal-card-list{
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+	}
+
+	.animal-card-container {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		height: unset;
+		border: none;
+		border-right: #ddd solid 1px;
+		border-bottom: #ddd solid 1px;
+		border-left: #ddd solid 1px;
+	}
+
+	.animal-card-info-container{
+		border-radius: 0px;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+
+	.animal-card-container .card-image{
+		border-radius: 0px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+}
