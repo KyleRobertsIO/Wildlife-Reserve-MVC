@@ -18,9 +18,31 @@
 #desktop-navigation-container .icon-wrapper {
 	padding: 10px 10px;
 	cursor: pointer;
-	transform: translateX(-60px);
-	animation: PopInIcons 0.5s linear forwards;
 }
+
+	#desktop-navigation-container .icon-wrapper img {
+		opacity: 0;
+		transform: scale(0.6);
+		animation: ScaleUpNavIcons 0.4s ease-in-out forwards;
+	}
+
+	@keyframes ScaleUpNavIcons{
+		0%{
+			opacity: 0;
+			transform: scale(0.4);
+		}
+		50%{
+			opacity: 1;
+			transform: scale(1.0);
+		}
+		80%{
+			transform: scale(0.9);
+		}
+		100%{
+			opacity: 1;
+			transform: scale(1.0);
+		}
+	}
 
 	#desktop-navigation-container .icon-wrapper:hover {
 		background-color: rgb(17, 82, 167);
@@ -32,16 +54,6 @@
         width: 30px; 
         height: 30px;
     }
-
-	@keyframes PopInIcons{
-		0%{
-			transform: translateX(-60px);
-		}
-
-		100%{
-			transform: translateX(0px);
-		}
-	}
 
     #mobile-dropdown-button {
         display: none;

@@ -24,6 +24,16 @@
 		<div id="animal-card-list-container">
 			<ul id="animal-card-list">
 
+				<template id="animal-card-template">
+					<li class="animal-card-container" onclick="displayAnimalPage()">
+						<img class="card-image" src="" alt="" />
+						<div class="animal-card-info-container">
+							<h2 class="animal-card-species"></h2>
+							<p class="animal-card-desc"></p>
+						</div>
+					</li>
+				</template>
+
 				<li class="animal-card-container">
 					<img class="card-image" src="~/Content/assets/images/animal_images/fox.jpg" />
 					<div class="animal-card-info-container">
@@ -50,7 +60,15 @@
 
 			</ul>
 		</div>
+
+		<div id="animal-details-page">
+			<!-- Display all the public information of the animal species -->
+		</div>
+
 	</div>
+
+	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Content/js/animals_request.js"></script>
 
 </body>
 </html>

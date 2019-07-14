@@ -39,6 +39,7 @@
 }
 
 .animal-card-container .card-image{
+	background-color: #bbb;
 	width: 100%;
 	height: 300px;
 	object-fit: cover;

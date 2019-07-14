@@ -26,20 +26,21 @@
 		 onclick="mobileDropdownToggle()">
 		<img class="nav-icon" src="~/Content/assets/icons/bars.svg" />
 	</div>
+	<script src="~/Content/js/navigation.js"></script>
 </nav>
 <div id="mobile-dropdown-menu">
 	<ul id="dropdown-link-list">
-		<a class="mobile-link" to="/">
+		<a class="mobile-link" href="@Url.Action("Index", "Home")">
 			<li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
 				Home
 			</li>
 		</a>
-		<a class="mobile-link" to="/animals">
+		<a class="mobile-link" href="@Url.Action("Animals", "Home")">
 			<li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
 				Animals
 			</li>
 		</a>
-		<a class="mobile-link" to="/creatures">
+		<a class="mobile-link" href="@Url.Action("Creatures", "Home")">
 			<li class="dropdown-link-wrapper" onclick={closeMobileDropdown}>
 				Creatures
 			</li>

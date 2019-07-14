@@ -183,6 +183,7 @@
     <Content Include="Content\assets\icons\home.svg" />
     <Content Include="Content\assets\icons\paw.svg" />
     <Content Include="Content\assets\images\animal_images\fox.jpg" />
+    <Content Include="Content\assets\images\animal_images\grey_wolf.jpg" />
     <Content Include="Content\assets\images\heroSize2.jpg" />
     <Content Include="Content\assets\images\homeHero.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -194,6 +195,7 @@
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\navigation.css" />
     <Content Include="Content\css\reset.css" />
+    <Content Include="Content\js\animals_request.js" />
     <Content Include="Content\js\navigation.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
