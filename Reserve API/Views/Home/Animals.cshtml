@@ -13,6 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/css/animals.css">
+	<link rel="stylesheet" type="text/css" href="~/Scripts/swiper-js/swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/animalsDetails.css">
 	<title>Reserve - @ViewBag.Title</title>
 </head>
 <body>
@@ -25,7 +27,7 @@
 			<ul id="animal-card-list">
 
 				<template id="animal-card-template">
-					<li class="animal-card-container" onclick="displayAnimalPage()">
+					<li class="animal-card-container" onclick="displayAnimalPage(this.id)">
 						<img class="card-image" src="" alt="" />
 						<div class="animal-card-info-container">
 							<h2 class="animal-card-species"></h2>
@@ -34,40 +36,28 @@
 					</li>
 				</template>
 
-				<li class="animal-card-container">
-					<img class="card-image" src="~/Content/assets/images/animal_images/fox.jpg" />
-					<div class="animal-card-info-container">
-						<h2 class="animal-card-species">Red Fox</h2>
-						<p class="animal-card-desc">
-							Lorem Ipsum is simply dummy text of the printing and
-							typesetting industry. Lorem Ipsum has been the industry's
-							standard dummy text ever since the 1500s.
-						</p>
-					</div>
-				</li>
-
-				<li class="animal-card-container">
-					<img class="card-image" src="~/Content/assets/images/animal_images/fox.jpg" />
-					<div class="animal-card-info-container">
-						<h2 class="animal-card-species">Red Fox</h2>
-						<p class="animal-card-desc">
-							Lorem Ipsum is simply dummy text of the printing and
-							typesetting industry. Lorem Ipsum has been the industry's
-							standard dummy text ever since the 1500s.
-						</p>
-					</div>
-				</li>
-
 			</ul>
 		</div>
 
 		<div id="animal-details-page">
 			<!-- Display all the public information of the animal species -->
+			<div class="swiper-container">
+				<div id="image-roll" class="swiper-wrapper">
+				</div>
+				<!-- Add Pagination -->
+				<div class="swiper-pagination"></div>
+			</div>
+			
+			<div id="animal-details-wrapper">
+				<h1 id="detail-animal-species"></h1>
+				<p id="detail-animal-description"></p>
+			</div>
+
 		</div>
 
 	</div>
 
-	<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+	<script src="~/Scripts/swiper-js/swiper.min.js"></script>
 	<script src="~/Content/js/animals_request.js"></script>
 
 </body>

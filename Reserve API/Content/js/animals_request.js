@@ -8,6 +8,8 @@
         createAnimalCards();
     });
 
+var swiper = null;
+
 function createAnimalCards() {
     let data = localStorage.getItem('animals');
     if (data != null) {
@@ -28,7 +30,53 @@ function createAnimalCards() {
     }
 }
 
-function displayAnimalPage() {
-    console.log("Open Display");
+function displayAnimalPage(speciesId) {
+    let animalsData = JSON.parse(localStorage.getItem('animals'));
+    let animalObj = null;
+    animalsData.forEach((animal) => {
+        if (speciesId == animal.SpeciesID) {
+            animalObj = animal;
+        }
+    });
 
+    let swiperWrapper = document.getElementById("image-roll");
+    animalObj.Photos.forEach((photo) => {
+        let slide = document.createElement("div");
+        slide.classList.add("swiper-slide");
+        slide.style.backgroundImage = `url(../Content/assets/images/animal_images/${photo.FileName})`;
+        swiperWrapper.appendChild(slide);
+    });
+
+    document.getElementById("detail-animal-species").innerText = animalObj.Species;
+    document.getElementById("detail-animal-description").innerText = animalObj.Description.DescriptionLong;
+
+    swiper = new Swiper('.swiper-container', {
+        effect: 'coverflow',
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        observer: true,
+        observeParents: true,
+        speed: 2000,
+        coverflowEffect: {
+            rotate: 45,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+        },
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+        }
+    });
+
+    /* Display Details Page and remove Animal List Grid */
+    let detailsContainer = document.getElementById("animal-details-page");
+    let listContainer = document.getElementById("animal-card-list-container");
+    detailsContainer.style.display = "block";
+    listContainer.style.display = "none";
 }
