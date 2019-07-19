@@ -31,6 +31,8 @@ function createAnimalCards() {
 }
 
 function displayAnimalPage(speciesId) {
+    let shortFormMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
     let animalsData = JSON.parse(localStorage.getItem('animals'));
     let animalObj = null;
     animalsData.forEach((animal) => {
@@ -49,6 +51,13 @@ function displayAnimalPage(speciesId) {
 
     document.getElementById("detail-animal-species").innerText = animalObj.Species;
     document.getElementById("detail-animal-description").innerText = animalObj.Description.DescriptionLong;
+    document.getElementById("detail-animal-population").innerText = animalObj.Population;
+
+    let startDate = new Date(animalObj.Description.BreedingSeasonStart);
+    let startMonth = shortFormMonths[startDate.getMonth()];
+    let endDate = new Date(animalObj.Description.BreedingSeasonEnd);
+    let endMonth = shortFormMonths[endDate.getMonth()];
+    document.getElementById('detail-animal-breeding-season').innerText = `${startMonth} - ${endMonth}`;
 
     swiper = new Swiper('.swiper-container', {
         effect: 'coverflow',
@@ -79,4 +88,17 @@ function displayAnimalPage(speciesId) {
     let listContainer = document.getElementById("animal-card-list-container");
     detailsContainer.style.display = "block";
     listContainer.style.display = "none";
+}
+
+function closeDetails() {
+    // Remove images from gallary
+    swiper.slideTo(0, 1, false);
+    let slider = document.getElementById("image-roll");
+    slider.innerHTML = "";
+    swiper = null;
+
+    let detailsContainer = document.getElementById("animal-details-page");
+    let listContainer = document.getElementById("animal-card-list-container");
+    detailsContainer.style.display = "none";
+    listContainer.style.display = "grid";
 }

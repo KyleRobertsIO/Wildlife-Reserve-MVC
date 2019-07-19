@@ -26,6 +26,11 @@ namespace Reserve_API.Models
             get; set;
         }
 
+        public int Population
+        {
+            get; set;
+        }
+
         public List<AnimalPhoto> Photos
         {
             get
@@ -34,10 +39,11 @@ namespace Reserve_API.Models
             }
         }
 
-        public Animal(int id, string species, AnimalDescription ad)
+        public Animal(int id, string species, int population, AnimalDescription ad)
         {
             SpeciesID = id;
             Species = species;
+            Population = population;
             Description = ad;
         }
 

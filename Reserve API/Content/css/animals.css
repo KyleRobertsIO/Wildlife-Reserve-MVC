@@ -24,6 +24,7 @@
 	box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
 	border-radius: 10px;
 	animation: FadeInCard 1s forwards;
+	cursor: pointer;
 }
 
 @keyframes FadeInCard{

@@ -1,0 +1,44 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" type="text/css" href="~/Content/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/forms.css">
+	<title>Reverse - @ViewBag.Title</title>
+</head>
+<body>
+
+	@{
+		Html.RenderPartial("Main_Navigation_Bar");
+	}
+
+	<div id="page-container">
+
+		<form id="form-container" action="/edit_animal" method="PUT">
+
+			<h1 id="form-title">Editing Animal</h1>
+
+			<h3 class="form-field-label">Population:</h3>
+			<input name="Population" class="form-text-field" type="text" placeholder="99" />
+
+			<h3 class="form-field-label">Short Description:</h3>
+			<textarea name="ShortDesc" class="form-textarea-field" placeholder="Short Description"></textarea>
+
+			<h3 class="form-field-label">Long Description:</h3>
+			<textarea name="LongDesc" class="form-textarea-field" placeholder="Long Description"></textarea>
+
+			<button id="form-submit-button" type="submit">Update</button>
+
+		</form>
+
+	</div>
+</body>
+</html>

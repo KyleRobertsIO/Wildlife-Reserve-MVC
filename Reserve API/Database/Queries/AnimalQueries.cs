@@ -15,21 +15,22 @@ namespace Reserve_API.Database.Queries
         {
             List<Animal> animalList = new List<Animal>();
             DBUtil dbUtil = new DBUtil();
-            MySqlDataAdapter adp = dbUtil.getConnection("SELECT * FROM animals_with_descriptions", "wildlife_reserve");
+            MySqlDataAdapter adp = dbUtil.getConnectionSelect("SELECT * FROM animals_with_descriptions", "wildlife_reserve");
             DataTable animalTable = new DataTable();
             adp.Fill(animalTable);
             foreach (DataRow datarow in animalTable.Rows)
             {
                 int speciesId = int.Parse(datarow["species_id"].ToString());
                 string species = datarow["species_name"].ToString();
+                int population = int.Parse(datarow["population"].ToString());
                 string descLong = datarow["long_desc"].ToString();
                 string descShort = datarow["short_desc"].ToString();
                 DateTime breedStart = DateTime.Parse(datarow["breeding_season_start"].ToString());
                 DateTime breedEnd = DateTime.Parse(datarow["breeding_season_end"].ToString());
                 AnimalDescription description = new AnimalDescription(descLong, descShort, breedStart, breedEnd);
-                Animal animal = new Animal(speciesId, species, description);
+                Animal animal = new Animal(speciesId, species, population, description);
 
-                MySqlDataAdapter adp2 = dbUtil.getConnection($"SELECT * FROM animal_images WHERE species_id = {speciesId}", "wildlife_reserve");
+                MySqlDataAdapter adp2 = dbUtil.getConnectionSelect($"SELECT * FROM animal_images WHERE species_id = {speciesId}", "wildlife_reserve");
                 DataTable photoTable = new DataTable();
                 adp2.Fill(photoTable);
 
@@ -53,7 +54,7 @@ namespace Reserve_API.Database.Queries
         {
             Animal animal = null;
             DBUtil dbUtil = new DBUtil();
-            MySqlDataAdapter adp = dbUtil.getConnection($"SELECT * FROM animals_with_descriptions WHERE species_id = {id}", "wildlife_reserve");
+            MySqlDataAdapter adp = dbUtil.getConnectionSelect($"SELECT * FROM animals_with_descriptions WHERE species_id = {id}", "wildlife_reserve");
             DataTable table = new DataTable();
             adp.Fill(table);
             if (table.Rows.Count > 0)
@@ -61,14 +62,15 @@ namespace Reserve_API.Database.Queries
                 DataRow datarow = table.Rows[0];
                 int speciesId = int.Parse(datarow["species_id"].ToString());
                 string species = datarow["species_name"].ToString();
+                int population = int.Parse(datarow["population"].ToString());
                 string descLong = datarow["long_desc"].ToString();
                 string descShort = datarow["short_desc"].ToString();
                 DateTime breedStart = DateTime.Parse(datarow["breeding_season_start"].ToString());
                 DateTime breedEnd = DateTime.Parse(datarow["breeding_season_end"].ToString());
                 AnimalDescription description = new AnimalDescription(descLong, descShort, breedStart, breedEnd);
-                animal = new Animal(speciesId, species, description);
+                animal = new Animal(speciesId, species, population, description);
 
-                MySqlDataAdapter adp2 = dbUtil.getConnection($"SELECT * FROM animal_images WHERE species_id = {speciesId}", "wildlife_reserve");
+                MySqlDataAdapter adp2 = dbUtil.getConnectionSelect($"SELECT * FROM animal_images WHERE species_id = {speciesId}", "wildlife_reserve");
                 DataTable photoTable = new DataTable();
                 adp2.Fill(photoTable);
 
@@ -82,6 +84,17 @@ namespace Reserve_API.Database.Queries
                 }
             }
             return animal;
+        }
+
+        public bool UpdateAnimal(int speciesId, int population)
+        {
+            Animal animal = SelectAnimalById(speciesId);
+
+            DBUtil dbUtil = new DBUtil();
+            bool result = dbUtil.getConnectionUpdate($"UPDATE animals SET population = {population} WHERE species_id = {speciesId}", 
+                "wildlife_reserve");
+
+            return result;
         }
 
     }

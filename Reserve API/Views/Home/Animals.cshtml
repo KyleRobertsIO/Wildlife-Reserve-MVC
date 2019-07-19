@@ -40,17 +40,30 @@
 		</div>
 
 		<div id="animal-details-page">
-			<!-- Display all the public information of the animal species -->
+			<button id="close-details-button" onclick="closeDetails()">
+				<img id="close-details-icon" src="~/Content/assets/icons/close.svg" />
+			</button>
 			<div class="swiper-container">
 				<div id="image-roll" class="swiper-wrapper">
 				</div>
-				<!-- Add Pagination -->
 				<div class="swiper-pagination"></div>
 			</div>
-			
+
 			<div id="animal-details-wrapper">
 				<h1 id="detail-animal-species"></h1>
 				<p id="detail-animal-description"></p>
+
+				<div id="detail-stats-wrapper">
+					<div id="population-tag">
+						<img class="detail-tag-icon" src="~/Content/assets/icons/chart.svg" alt="Population" />
+						<h3 id="detail-animal-population"></h3>
+					</div>
+					<div id="breeding-season-tag">
+						<img class="detail-tag-icon" src="~/Content/assets/icons/heart.svg" alt="Breeding Season" />
+						<h3 id="detail-animal-breeding-season"></h3>
+					</div>
+				</div>
+
 			</div>
 
 		</div>

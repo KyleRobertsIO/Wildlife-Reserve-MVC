@@ -179,7 +179,10 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\assets\icons\bars.svg" />
+    <Content Include="Content\assets\icons\chart.svg" />
+    <Content Include="Content\assets\icons\close.svg" />
     <Content Include="Content\assets\icons\creature.svg" />
+    <Content Include="Content\assets\icons\heart.svg" />
     <Content Include="Content\assets\icons\home.svg" />
     <Content Include="Content\assets\icons\paw.svg" />
     <Content Include="Content\assets\images\animal_images\fox.jpg" />
@@ -245,6 +248,7 @@
     <Content Include="Views\Shared\Main_Navigation_Bar.cshtml" />
     <Content Include="Views\Home\Animals.cshtml" />
     <Content Include="Views\Home\Creatures.cshtml" />
+    <Content Include="Views\Home\Edit_Animal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
