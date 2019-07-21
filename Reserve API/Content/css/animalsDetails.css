@@ -1,7 +1,6 @@
 ﻿#animal-details-page {
 	display: none;
 	width: 100%;
-	min-height: 100vh;
 	background-color: #fff;
 }
 
@@ -74,7 +73,6 @@
 
 #population-tag, #breeding-season-tag{
 	width: 50%;
-	background-color: #75309e;
 	padding: 20px;
 	display: flex;
 	font-weight: 600;
@@ -87,6 +85,14 @@
 	align-items: center;
 	margin: 40px 5px 20px 5px;
 	box-shadow: 0px 5px 10px rgba(0,0,0,0.6);
+}
+
+#population-tag {
+    background-color: #449356;
+}
+
+#breeding-season-tag {
+    background-color: #b052b7;
 }
 
 .detail-tag-icon{

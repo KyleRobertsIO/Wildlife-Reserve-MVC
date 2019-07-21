@@ -86,15 +86,24 @@ namespace Reserve_API.Database.Queries
             return animal;
         }
 
-        public bool UpdateAnimal(int speciesId, int population)
+        public bool UpdateAnimal(int speciesId, int population, string shortDesc, string longDesc)
         {
-            Animal animal = SelectAnimalById(speciesId);
-
             DBUtil dbUtil = new DBUtil();
-            bool result = dbUtil.getConnectionUpdate($"UPDATE animals SET population = {population} WHERE species_id = {speciesId}", 
+            bool result1 = dbUtil.getConnectionUpdate($"UPDATE animals SET population = {population} WHERE species_id = {speciesId}", 
                 "wildlife_reserve");
 
-            return result;
+            bool result2 = dbUtil.getConnectionUpdate(
+                $"UPDATE animal_descriptions SET short_desc = '{shortDesc}', long_desc = '{longDesc}' WHERE species_id = {speciesId}",
+                "wildlife_reserve"
+                );
+            if (result1 && result2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

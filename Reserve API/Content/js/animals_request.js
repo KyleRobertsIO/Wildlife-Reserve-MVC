@@ -19,12 +19,17 @@ function createAnimalCards() {
         let gridContainer = document.getElementById("animal-card-list");
         animals.forEach((animal) => {
             let clone = template.cloneNode(true);
-            clone.querySelector('.animal-card-container').id = animal.SpeciesID;
+            let cardContainer = clone.querySelector('.animal-card-container');
+            cardContainer.id = animal.SpeciesID;
             let filePath = `../Content/assets/images/animal_images/${animal.Photos[0].FileName}`;
             clone.querySelector('.card-image').setAttribute("src", filePath);
             clone.querySelector('.card-image').setAttribute("alt", `${animal.Species} Photo`);
             clone.querySelector('.animal-card-species').innerText = animal.Species;
             clone.querySelector('.animal-card-desc').innerText = animal.Description.DescriptionShort;
+            if (sessionUsername != '') {
+                clone.querySelector(".edit-animal-button").style.display = "flex";
+                clone.querySelector(".edit-button-link").setAttribute("href", `/home/edit_animal/${animal.SpeciesID}`);
+            }
             gridContainer.appendChild(clone);
         });
     }
@@ -40,6 +45,8 @@ function displayAnimalPage(speciesId) {
             animalObj = animal;
         }
     });
+
+    window.scrollTo(0,0);
 
     let swiperWrapper = document.getElementById("image-roll");
     animalObj.Photos.forEach((photo) => {

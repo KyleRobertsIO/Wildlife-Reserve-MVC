@@ -185,6 +185,8 @@
     <Content Include="Content\assets\icons\heart.svg" />
     <Content Include="Content\assets\icons\home.svg" />
     <Content Include="Content\assets\icons\paw.svg" />
+    <Content Include="Content\assets\icons\account.svg" />
+    <Content Include="Content\assets\icons\edit.svg" />
     <Content Include="Content\assets\images\animal_images\fox.jpg" />
     <Content Include="Content\assets\images\animal_images\grey_wolf.jpg" />
     <Content Include="Content\assets\images\heroSize2.jpg" />
@@ -195,7 +197,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\animals.css" />
     <Content Include="Content\css\animalsDetails.css" />
+    <Content Include="Content\css\forms.css" />
     <Content Include="Content\css\home.css" />
+    <Content Include="Content\css\login.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\navigation.css" />
     <Content Include="Content\css\reset.css" />
@@ -249,6 +253,7 @@
     <Content Include="Views\Home\Animals.cshtml" />
     <Content Include="Views\Home\Creatures.cshtml" />
     <Content Include="Views\Home\Edit_Animal.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

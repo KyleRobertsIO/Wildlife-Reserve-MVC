@@ -23,19 +23,26 @@
 	}
 
 	<div id="page-container">
+
 		<div id="animal-card-list-container">
 			<ul id="animal-card-list">
-
 				<template id="animal-card-template">
-					<li class="animal-card-container" onclick="displayAnimalPage(this.id)">
-						<img class="card-image" src="" alt="" />
-						<div class="animal-card-info-container">
-							<h2 class="animal-card-species"></h2>
-							<p class="animal-card-desc"></p>
-						</div>
-					</li>
+                    <li class="card-flex">
+                        <div class="animal-card-container" onclick="displayAnimalPage(this.id)">
+                            <img class="card-image" src="" alt="" />
+                            <div class="animal-card-info-container">
+                                <h2 class="animal-card-species"></h2>
+                                <p class="animal-card-desc"></p>
+                            </div>
+                        </div>
+                        <a class="edit-button-link" href="">
+                            <button class="edit-animal-button">
+                                <img class="edit-button-icon" src="~/Content/assets/icons/edit.svg" alt="Edit" />
+                                Edit
+                            </button>
+                        </a>
+                    </li>
 				</template>
-
 			</ul>
 		</div>
 
@@ -70,6 +77,9 @@
 
 	</div>
 
+    <script>
+        var sessionUsername = '@Session["Username"]';
+    </script>
 	<script src="~/Scripts/swiper-js/swiper.min.js"></script>
 	<script src="~/Content/js/animals_request.js"></script>
 

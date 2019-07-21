@@ -22,22 +22,29 @@
 
 	<div id="page-container">
 
-		<form id="form-container" action="/edit_animal" method="PUT">
+		<form id="form-container" action="/home/edit_animal_update" method="POST">
 
-			<h1 id="form-title">Editing Animal</h1>
+			<h1 id="form-title">Editing @Model.Species</h1>
+
+            <input type="hidden" name="SpeciesID" value="@Model.SpeciesID" />
 
 			<h3 class="form-field-label">Population:</h3>
-			<input name="Population" class="form-text-field" type="text" placeholder="99" />
+			<input name="Population" class="form-text-field" type="text" value="@Model.Population" placeholder="99" />
 
 			<h3 class="form-field-label">Short Description:</h3>
-			<textarea name="ShortDesc" class="form-textarea-field" placeholder="Short Description"></textarea>
+			<textarea id="short-desc" name="ShortDesc" class="form-textarea-field" value="@Model.Description.DescriptionShort" placeholder="Short Description" maxlength="200"></textarea>
 
 			<h3 class="form-field-label">Long Description:</h3>
-			<textarea name="LongDesc" class="form-textarea-field" placeholder="Long Description"></textarea>
+			<textarea id="long-desc" name="LongDesc" class="form-textarea-field" value="@Model.Description.DescriptionLong" placeholder="Long Description" maxlength="2000"></textarea>
 
 			<button id="form-submit-button" type="submit">Update</button>
 
 		</form>
+
+        <script>
+            document.getElementById("short-desc").innerText = "@Model.Description.DescriptionShort";
+            document.getElementById("long-desc").innerText = "@Model.Description.DescriptionLong";
+        </script>
 
 	</div>
 </body>

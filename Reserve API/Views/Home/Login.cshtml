@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/login.css">
+    <title>Reverse - @ViewBag.Title</title>
+</head>
+<body>
+
+    @{
+        Html.RenderPartial("Main_Navigation_Bar");
+    }
+
+    <div id="page-container">
+
+        <form id="login-form" method="POST" action="/home/login">
+            <h1 id="login-form-title">Sign In</h1>
+            <input class="login-text-field" name="Username" type="text" />
+            <input class="login-text-field" name="Password" type="text" />
+            <button id="login-submit-button" type="submit">Submit</button>
+        </form>
+
+    </div>
+</body>
+</html>

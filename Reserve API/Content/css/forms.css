@@ -20,7 +20,7 @@
 .form-text-field, .form-textarea-field{
 	padding: 10px;
 	font-size: 20px;
-	width: calc(50% - 22px);
+	width: calc(100% - 22px);
 	transition: 0.3s;
 	border: #ccc solid 1px;
 	border-radius: 5px;
@@ -38,7 +38,7 @@
 
 #form-submit-button {
 	border: none;
-	width: 50%;
+	width: 100%;
 	background-color: #1864c9;
 	font-weight: 900;
 	font-size: 25px;
@@ -60,7 +60,6 @@
 	}
 
 	.form-text-field, .form-textarea-field{
-		width: calc(100% - 22px);
 		font-size: 18px;
 	}
 
