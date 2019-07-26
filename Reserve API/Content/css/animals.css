@@ -61,6 +61,7 @@
 }
 
 .animal-card-info-container {
+	background-color: #fff;
 	border-right: #eee solid 1px;
 	border-bottom: #eee solid 1px;
 	border-top: #eee solid 1px;
