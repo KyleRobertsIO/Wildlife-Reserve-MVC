@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -10,22 +11,26 @@ namespace Reserve_API.Models
 
         private List<AnimalPhoto> _photoList = new List<AnimalPhoto>();
 
+        [Required]
         public int SpeciesID
         {
             get;
             set;
         }
 
+        [Required]
         public string Species
         {
             get; set;
         }
 
+        [Required]
         public AnimalDescription Description
         {
             get; set;
         }
 
+        [Required]
         public int Population
         {
             get; set;

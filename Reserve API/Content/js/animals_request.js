@@ -2,8 +2,8 @@
     .then(function(response){
         return response.json();
     })
-    .then(function (myJson) {
-        let animals = JSON.stringify(myJson);
+    .then(function (data) {
+        let animals = JSON.stringify(data);
         localStorage.setItem('animals', animals);
         createAnimalCards();
     });
@@ -12,9 +12,9 @@ var swiper = null;
 
 function createAnimalCards() {
     let data = localStorage.getItem('animals');
+    document.getElementById("loading-screen-container").style.display = "none";
     if (data != null) {
         let animals = JSON.parse(data);
-        console.log(animals);
         let template = document.getElementById("animal-card-template").content;
         let gridContainer = document.getElementById("animal-card-list");
         animals.forEach((animal) => {

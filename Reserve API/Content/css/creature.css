@@ -1,0 +1,73 @@
+﻿#page-container {
+	font-family: 'Lato', sans-serif;
+	padding: 40px;
+	width: calc(100% - 60px - 80px);
+	min-height: calc(100vh - 80px);
+}
+
+#creature-name{
+	font-size: 50px;
+	font-weight: 900;
+}
+
+#species-subtitle{
+	font-size: 25px;
+	font-style: italic;
+	margin: 20px 0px 50px 0px;
+}
+
+#records-title{
+	font-size: 30px;
+	font-weight: 600;
+	margin: 0px 0px 30px 0px;
+}
+
+#med-records-list{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+}
+
+.record-listing-container{
+	display: flex;
+	align-items: center;
+	border: 1px solid #888;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.record-date{
+	font-size: 25px;
+	font-weight: 600;
+
+}
+
+.record-controls-container{
+	margin-left: auto;
+}
+
+.record-button{
+	border: none;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 0px 0px 0px 10px;
+	transition: 0.3s;
+}
+
+.record-button:hover {
+	box-shadow: 0px 3px 3px rgba(0,0,0,0.5);
+	transform: scale(1.1);
+}
+
+.edit-button{
+	background-color: #06c206;
+}
+
+.view-button {
+	background-color: #2424dd;
+}
+
+.record-button-icon{
+	width: 30px;
+	height: 30px;
+}

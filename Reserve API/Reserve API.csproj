@@ -163,10 +163,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AnimalsController.cs" />
+    <Compile Include="Controllers\CreaturesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Database\DBUtil.cs" />
     <Compile Include="Database\Queries\AnimalQueries.cs" />
+    <Compile Include="Database\Queries\CreatureQueries.cs" />
+    <Compile Include="Database\Queries\NotFoundQueryException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -174,6 +177,8 @@
     <Compile Include="Models\AnimalDescription.cs" />
     <Compile Include="Models\AnimalPhoto.cs" />
     <Compile Include="Models\Animals.cs" />
+    <Compile Include="Models\Creature.cs" />
+    <Compile Include="Models\MedicalRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -182,11 +187,15 @@
     <Content Include="Content\assets\icons\chart.svg" />
     <Content Include="Content\assets\icons\close.svg" />
     <Content Include="Content\assets\icons\creature.svg" />
+    <Content Include="Content\assets\icons\view.svg" />
     <Content Include="Content\assets\icons\heart.svg" />
     <Content Include="Content\assets\icons\home.svg" />
+    <Content Include="Content\assets\icons\leaf.svg" />
     <Content Include="Content\assets\icons\paw.svg" />
     <Content Include="Content\assets\icons\account.svg" />
     <Content Include="Content\assets\icons\edit.svg" />
+    <Content Include="Content\assets\icons\plus.svg" />
+    <Content Include="Content\assets\icons\trash.svg" />
     <Content Include="Content\assets\images\animal_images\fox.jpg" />
     <Content Include="Content\assets\images\animal_images\grey_wolf.jpg" />
     <Content Include="Content\assets\images\heroSize2.jpg" />
@@ -197,13 +206,18 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\css\animals.css" />
     <Content Include="Content\css\animalsDetails.css" />
+    <Content Include="Content\css\creature.css" />
+    <Content Include="Content\css\creatures.css" />
+    <Content Include="Content\css\error.css" />
     <Content Include="Content\css\forms.css" />
     <Content Include="Content\css\home.css" />
+    <Content Include="Content\css\loading.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\main.css" />
     <Content Include="Content\css\navigation.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\js\animals_request.js" />
+    <Content Include="Content\js\creature_request.js" />
     <Content Include="Content\js\navigation.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -248,12 +262,13 @@
     <Content Include="Content\Site.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Shared\Main_Navigation_Bar.cshtml" />
     <Content Include="Views\Home\Animals.cshtml" />
     <Content Include="Views\Home\Creatures.cshtml" />
     <Content Include="Views\Home\Edit_Animal.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Creature.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

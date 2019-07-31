@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" type="text/css" href="~/Content/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/error.css">
+	<title>Reverse - Error</title>
+</head>
+<body>
+
+	@{
+		Html.RenderPartial("Main_Navigation_Bar");
+	}
+
+	<div id="page-container">
+		<h2>@ViewBag.ErrorMessage</h2>
+	</div>
+</body>
+</html>

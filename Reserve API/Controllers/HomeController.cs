@@ -27,9 +27,13 @@ namespace Reserve_API.Controllers
             return View();
         }
 
-        public ViewResult Login()
+        public ActionResult Login()
         {
             ViewBag.Title = "Login";
+            if (TempData["LoginErrorMessage"] != null)
+            {
+                ViewBag.ErrorMessage = TempData["LoginErrorMessage"].ToString();
+            }         
             return View();
         }
 
@@ -55,13 +59,15 @@ namespace Reserve_API.Controllers
                 else
                 {
                     //Wrong password
-                    return View("Login");
+                    TempData["LoginErrorMessage"] = "Invalid password";
+                    return RedirectToAction("Login");
                 }
             }
             else
             {
                 // No result found
-                return View("Login");
+                TempData["LoginErrorMessage"] = "Invalid username";
+                return RedirectToAction("Login");
             }
         }
 
@@ -72,14 +78,24 @@ namespace Reserve_API.Controllers
             return View();
         }
 
-        public ViewResult Edit_Animal(int id)
+        public ActionResult Edit_Animal(int id = 0)
         {
+            if (id == 0)
+            {
+                return View("Index");
+            }
             if (Session["Username"] != null)
             {
                 ViewBag.Title = "Edit Animal";
-                AnimalQueries aq = new AnimalQueries();
-                Animal animal = aq.SelectAnimalById(id);
-                return View(animal);
+                try{
+                    AnimalQueries aq = new AnimalQueries();
+                    Animal animal = aq.SelectAnimalById(id);
+                    return View(animal);
+                }catch (Exception e)
+                {
+                    TempData["ErrorMessage"] = "The requested species can't be found.";
+                    return RedirectToAction("Error");
+                }
             }
             else
             {
@@ -95,8 +111,8 @@ namespace Reserve_API.Controllers
                 bool result = new AnimalQueries().UpdateAnimal(SpeciesID, Population, ShortDesc, LongDesc);
                 if (result == false)
                 {
-                    ViewBag.Title = "Error";
-                    return View("Error");
+                    TempData["ErrorMessage"] = "The edit you requested can't be performed. Please contact your administrator.";
+                    return RedirectToAction("Error");
                 }
                 else
                 {
@@ -108,6 +124,53 @@ namespace Reserve_API.Controllers
             {
                 return View("Index");
             }
+        }
+
+        public ActionResult Creature(int id)
+        {
+            try
+            {
+                CreatureQueries cq = new CreatureQueries();
+                Creature creature = cq.SelectCreatureById(id);
+                if (creature != null)
+                {
+                    return View(creature);
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "The requested creature cannot be found.";
+                    return RedirectToAction("Error");
+                }
+            }
+            catch (Exception e)
+            {
+                TempData["ErrorMessage"] = "The requested creature cannot be found.";
+                return RedirectToAction("Error");
+            }
+        }
+
+        public ActionResult Creature_Delete(int id)
+        {
+            CreatureQueries cq = new CreatureQueries();
+            bool result = cq.DeleteCreature(id);
+            if (result == true)
+            {
+                return RedirectToAction("Creatures");
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "The delete request couldn't be processed.";
+                return RedirectToAction("Error");
+            }
+        }
+
+        public ActionResult Error()
+        {
+            if (TempData["ErrorMessage"] != null)
+            {
+                ViewBag.ErrorMessage = TempData["ErrorMessage"].ToString();
+            }
+            return View("Error");
         }
     }
 }

@@ -83,6 +83,10 @@ namespace Reserve_API.Database.Queries
                     animal.AddPhoto(animalPhoto);
                 }
             }
+            else
+            {
+                throw new NotFoundQueryException();
+            }
             return animal;
         }
 

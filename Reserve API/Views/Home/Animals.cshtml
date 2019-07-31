@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/css/animals.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/loading.css">
 	<link rel="stylesheet" type="text/css" href="~/Scripts/swiper-js/swiper.min.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/css/animalsDetails.css">
 	<title>Reserve - @ViewBag.Title</title>
@@ -23,6 +24,10 @@
 	}
 
 	<div id="page-container">
+
+		<div id="loading-screen-container">
+			<img id="loading-screen-icon" src="~/Content/assets/icons/leaf.svg" alt="leaf loader" />
+		</div>
 
 		<div id="animal-card-list-container">
 			<ul id="animal-card-list">

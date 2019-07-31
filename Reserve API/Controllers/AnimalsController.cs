@@ -5,9 +5,6 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Newtonsoft.Json;
-using Reserve_API.Database;
-using MySql.Data.MySqlClient;
 using System.Data;
 using Reserve_API.Database.Queries;
 

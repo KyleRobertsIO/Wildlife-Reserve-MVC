@@ -12,12 +12,50 @@
 	<link rel="stylesheet" type="text/css" href="~/Content/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/creatures.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/loading.css">
 	<title>Reserve - @ViewBag.Title</title>
 </head>
 <body>
 	@{
 		Html.RenderPartial("Main_Navigation_Bar");
 	}
+
+	<div id="page-container">
+
+		<div id="loading-screen-container">
+			<img id="loading-screen-icon" src="~/Content/assets/icons/leaf.svg" alt="leaf loader" />
+		</div>
+
+		<div id="creature-list-container">
+			<ul id="creature-info-list">
+
+				<template id="creature-listing-template">
+					<li class="creature-listing">
+						<h2 class="nickname-title">Russel</h2>
+						<p class="species-tag">Grey Wolf</p>
+						<div class="control-button-container">
+							<a class="control-link delete-action" href="">
+								<button class="control-button delete-button">
+									<img class="control-button-icon"
+										 src="~/Content/assets/icons/trash.svg" />
+								</button>
+							</a>
+							<a href="" class="control-link view-action">
+								<button class="control-button view-button">
+									<img class="control-button-icon"
+										 src="~/Content/assets/icons/view.svg" />
+								</button>
+							</a>
+						</div>
+					</li>
+				</template>
+
+			</ul>
+		</div>
+	</div>
+
+	<script src="~/Content/js/creature_request.js"></script>
 
 </body>
 </html>

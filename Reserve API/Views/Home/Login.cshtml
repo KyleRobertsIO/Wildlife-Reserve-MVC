@@ -22,12 +22,22 @@
 
     <div id="page-container">
 
-        <form id="login-form" method="POST" action="/home/login">
-            <h1 id="login-form-title">Sign In</h1>
-            <input class="login-text-field" name="Username" type="text" />
-            <input class="login-text-field" name="Password" type="password" />
-            <button id="login-submit-button" type="submit">Submit</button>
-        </form>
+		<form id="login-form" method="POST" action="/home/login">
+			<h1 id="login-form-title">Sign In</h1>
+
+
+
+			@if (ViewBag.ErrorMessage != null)
+			{
+				<div id="error-message-container">
+					<h3 id="error-message-text">@ViewBag.ErrorMessage</h3>
+				</div>
+			}
+
+			<input class="login-text-field" name="Username" type="text" />
+			<input class="login-text-field" name="Password" type="password" />
+			<button id="login-submit-button" type="submit">Submit</button>
+		</form>
 
     </div>
 </body>

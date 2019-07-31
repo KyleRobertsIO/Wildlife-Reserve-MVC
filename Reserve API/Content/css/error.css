@@ -1,0 +1,16 @@
+﻿#page-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 40px;
+	min-height: calc(100vh - 85px);
+	width: calc(100% - 140px);
+}
+
+h2 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 600;
+	text-align: center;
+	color: #888;
+	font-size: 50px;
+}

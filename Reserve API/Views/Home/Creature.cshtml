@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="~/Content/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/creature.css">
+	<title>Reverse - @ViewBag.Title</title>
+</head>
+<body>
+
+	@{
+		Html.RenderPartial("Main_Navigation_Bar");
+	}
+
+	<div id="page-container">
+
+		<h1 id="creature-name">@Model.Nickname</h1>
+
+		<h3 id="species-subtitle">@Model.Species.Species</h3>
+
+		<h3 id="records-title">Medical Records</h3>
+
+		<div id="med-records-list-container">
+			<ul id="med-records-list">
+
+
+				@foreach (var record in Model.MedicalRecords)
+				{
+					<li class="record-listing-container">
+						<h3 class="record-date">@record.DatePerformed.ToString("dd / MMM / yyyy")</h3>
+						<div class="record-controls-container">
+							<button class="record-button edit-button">
+								<img class="record-button-icon" src="~/Content/assets/icons/edit.svg" alt="edit" />
+							</button>
+							<button class="record-button view-button">
+								<img class="record-button-icon" src="~/Content/assets/icons/view.svg" alt="view" />
+							</button>
+						</div>
+					</li>
+				}
+
+				<!-- Add links to buttons with route control -->
+			</ul>
+		</div>
+
+	</div>
+
+</body>
+</html>
