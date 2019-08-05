@@ -69,5 +69,24 @@ namespace Reserve_API.Database
             }
         }
 
+        public bool getConnectionExecute(string query, string dbName)
+        {
+            try
+            {
+                string connectionString = getConnectionString(dbName);
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataReader reader;
+                connection.Open();
+                reader = command.ExecuteReader();
+                connection.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
+        }
+
     }
 }

@@ -1,17 +1,25 @@
-﻿.animal-card-list-container {
+﻿#page-title{
+	font-weight: 900;
+	font-size: 50px;
+	font-family: 'Lato', sans-serif;
+	padding: 40px 40px 0px 40px;
+}
+
+.animal-card-list-container {
 	width: 100%;
 	display: flex;
+	flex-direction: column;
+	align-items: center;
 	justify-content: center;
 }
 
 #animal-card-list {
-	width: 90%;
+	width: calc(100% - 80px);
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 300px;
 	grid-gap: 30px;
-	margin: 0 auto;
-	padding: 50px 20px 20px 20px;
+	padding: 50px 40px 20px 40px;
 }
 
 .card-flex {
@@ -147,3 +155,9 @@
         grid-column: 1 / 1;
     }
 }
+
+	@media only screen and (max-width: 400px){
+		.animal-card-desc{
+			font-size: 7px;
+		}	
+	}

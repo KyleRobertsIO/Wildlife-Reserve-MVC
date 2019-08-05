@@ -19,8 +19,12 @@ function createCreatureListings() {
             let clone = template.cloneNode(true);
             clone.querySelector('.nickname-title').innerText = creature.Nickname;
             clone.querySelector('.species-tag').innerText = creature.Species.Species;
-            clone.querySelector(".delete-action").setAttribute("href",
-                `/home/creature_delete/${creature.CreatureID}`);
+
+            if (activeSession != "") {
+                clone.querySelector(".delete-action").setAttribute("href",
+                    `/home/creature_delete/${creature.CreatureID}`);
+            }
+
             clone.querySelector(".view-action").setAttribute("href",
                 `/home/creature/${creature.CreatureID}`);
             gridContainer.appendChild(clone);

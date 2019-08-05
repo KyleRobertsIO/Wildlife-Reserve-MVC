@@ -15,7 +15,7 @@ namespace Reserve_API.Database.Queries
         {
             List<Animal> animalList = new List<Animal>();
             DBUtil dbUtil = new DBUtil();
-            MySqlDataAdapter adp = dbUtil.getConnectionSelect("SELECT * FROM animals_with_descriptions", "wildlife_reserve");
+            MySqlDataAdapter adp = dbUtil.getConnectionSelect("SELECT * FROM animals_with_descriptions ORDER BY species_name ASC", "wildlife_reserve");
             DataTable animalTable = new DataTable();
             adp.Fill(animalTable);
             foreach (DataRow datarow in animalTable.Rows)

@@ -114,5 +114,15 @@ namespace Reserve_API.Database.Queries
             return result;
         }
 
+        public bool AddCreature(string nickname, int speciesId)
+        {
+            bool result = false;
+            DBUtil dbUtil = new DBUtil();
+            result = dbUtil.getConnectionExecute(
+                $"INSERT INTO creatures (nickname, species_id) VALUES ('{nickname}', '{speciesId}')",
+                "wildlife_reserve");
+            return result;
+        }
+
     }
 }

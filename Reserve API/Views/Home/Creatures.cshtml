@@ -28,6 +28,9 @@
 		</div>
 
 		<div id="creature-list-container">
+
+			<h1 id="page-title">Creatures</h1>
+
 			<ul id="creature-info-list">
 
 				<template id="creature-listing-template">
@@ -35,12 +38,17 @@
 						<h2 class="nickname-title">Russel</h2>
 						<p class="species-tag">Grey Wolf</p>
 						<div class="control-button-container">
-							<a class="control-link delete-action" href="">
-								<button class="control-button delete-button">
-									<img class="control-button-icon"
-										 src="~/Content/assets/icons/trash.svg" />
-								</button>
-							</a>
+
+							@if (Session["Username"] != null)
+							{
+								<a class="control-link delete-action" href="">
+									<button class="control-button delete-button">
+										<img class="control-button-icon"
+											 src="~/Content/assets/icons/trash.svg" />
+									</button>
+								</a>
+							}
+
 							<a href="" class="control-link view-action">
 								<button class="control-button view-button">
 									<img class="control-button-icon"
@@ -55,6 +63,9 @@
 		</div>
 	</div>
 
+	<script>
+		var activeSession = "@Session["Username"]";
+	</script>
 	<script src="~/Content/js/creature_request.js"></script>
 
 </body>

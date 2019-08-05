@@ -33,7 +33,7 @@ namespace Reserve_API.Controllers
             if (TempData["LoginErrorMessage"] != null)
             {
                 ViewBag.ErrorMessage = TempData["LoginErrorMessage"].ToString();
-            }         
+            }
             return View();
         }
 
@@ -87,11 +87,11 @@ namespace Reserve_API.Controllers
             if (Session["Username"] != null)
             {
                 ViewBag.Title = "Edit Animal";
-                try{
+                try {
                     AnimalQueries aq = new AnimalQueries();
                     Animal animal = aq.SelectAnimalById(id);
                     return View(animal);
-                }catch (Exception e)
+                } catch (Exception e)
                 {
                     TempData["ErrorMessage"] = "The requested species can't be found.";
                     return RedirectToAction("Error");
@@ -103,6 +103,7 @@ namespace Reserve_API.Controllers
             }
         }
 
+        [HttpPut]
         public ActionResult Edit_Animal_Update(int SpeciesID, int Population, string ShortDesc, string LongDesc)
         {
 
@@ -116,13 +117,12 @@ namespace Reserve_API.Controllers
                 }
                 else
                 {
-                    ViewBag.Title = "Home";
-                    return View("Index");
+                    return RedirectToAction("Index");
                 }
             }
             else
             {
-                return View("Index");
+                return RedirectToAction("Login");
             }
         }
 
@@ -149,18 +149,94 @@ namespace Reserve_API.Controllers
             }
         }
 
+        [HttpDelete]
         public ActionResult Creature_Delete(int id)
         {
-            CreatureQueries cq = new CreatureQueries();
-            bool result = cq.DeleteCreature(id);
-            if (result == true)
+            if (Session["Username"] != null)
             {
-                return RedirectToAction("Creatures");
+                CreatureQueries cq = new CreatureQueries();
+                bool result = cq.DeleteCreature(id);
+                if (result == true)
+                {
+                    return RedirectToAction("Creatures");
+                }
+                else
+                {
+                    TempData["ErrorMessage"] = "The delete request couldn't be processed.";
+                    return RedirectToAction("Error");
+                }
             }
             else
             {
-                TempData["ErrorMessage"] = "The delete request couldn't be processed.";
-                return RedirectToAction("Error");
+                return RedirectToAction("Login");
+            }
+        }
+
+        public ActionResult Creature_Add()
+        {
+            if (Session["Username"] != null)
+            {
+                ViewBag.Title = "Add Creature";
+                DBUtil dbUtil = new DBUtil();
+                MySqlDataAdapter adp = dbUtil.getConnectionSelect(
+                    "SELECT species_id, species_name FROM animals ORDER BY species_name ASC",
+                    "wildlife_reserve"
+                );
+                DataTable table = new DataTable();
+                adp.Fill(table);
+                Dictionary<int, string> speciesList = new Dictionary<int, string>();
+                foreach (DataRow row in table.Rows)
+                {
+                    int speciesID = int.Parse(row["species_id"].ToString());
+                    string speciesName = row["species_name"].ToString();
+                    speciesList.Add(speciesID, speciesName);
+                }
+                ViewBag.SpeciesDictionary = speciesList;
+                if (TempData["ErrorMessage"] != null)
+                {
+                    ViewBag.ErrorMessage = TempData["ErrorMessage"].ToString();
+                }
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Creature_Add_Insert(string Nickname, int SpeciesID)
+        {
+            if (Session["Username"] != null)
+            {
+                if (Nickname == "")
+                {
+                    TempData["ErrorMessage"] = "Provide a nickname";
+                    return RedirectToAction("Creature_Add");
+                }
+                try
+                {
+                    CreatureQueries cq = new CreatureQueries();
+                    bool result = cq.AddCreature(Nickname, SpeciesID);
+                    if (result == true)
+                    {
+                        return RedirectToAction("Creatures");
+                    }
+                    else
+                    {
+                        // error message
+                        return RedirectToAction("Creature_Add");
+                    }
+                }
+                catch (Exception e)
+                {
+                    TempData["ErrorMessage"] = "Something went wrong. Please try adding again.";
+                    return View("Error");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
             }
         }
 
