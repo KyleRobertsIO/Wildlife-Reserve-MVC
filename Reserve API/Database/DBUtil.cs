@@ -18,7 +18,7 @@ namespace Reserve_API.Database
             string port = WebConfigurationManager.AppSettings["dbPort"];
             string userID = WebConfigurationManager.AppSettings["dbUid"];
             string password = WebConfigurationManager.AppSettings["dbPassword"];
-            string connectionString = $"{server}{port}Database={dbName};{userID}{password}";
+            string connectionString = $"{server}{port}Database={dbName};{userID}{password};SslMode=none;";
             return connectionString;
         }
 

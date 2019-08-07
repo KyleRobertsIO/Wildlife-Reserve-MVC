@@ -71,3 +71,9 @@
 	width: 30px;
 	height: 30px;
 }
+
+#not-found-message{
+	font-weight: 600;
+	color: #888;
+	font-size: 20px;
+}

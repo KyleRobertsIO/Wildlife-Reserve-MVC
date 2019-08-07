@@ -169,6 +169,7 @@
     <Compile Include="Database\DBUtil.cs" />
     <Compile Include="Database\Queries\AnimalQueries.cs" />
     <Compile Include="Database\Queries\CreatureQueries.cs" />
+    <Compile Include="Database\Queries\MedicalRecordQueries.cs" />
     <Compile Include="Database\Queries\NotFoundQueryException.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

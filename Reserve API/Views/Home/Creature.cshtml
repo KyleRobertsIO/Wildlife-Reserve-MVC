@@ -32,20 +32,30 @@
 			<ul id="med-records-list">
 
 
-				@foreach (var record in Model.MedicalRecords)
+				@if (Model.MedicalRecords.Count != 0)
 				{
-					<li class="record-listing-container">
-						<h3 class="record-date">@record.DatePerformed.ToString("dd / MMM / yyyy")</h3>
-						<div class="record-controls-container">
-							<button class="record-button edit-button">
-								<img class="record-button-icon" src="~/Content/assets/icons/edit.svg" alt="edit" />
-							</button>
-							<button class="record-button view-button">
-								<img class="record-button-icon" src="~/Content/assets/icons/view.svg" alt="view" />
-							</button>
-						</div>
+					foreach (var record in Model.MedicalRecords)
+					{
+						<li class="record-listing-container">
+							<h3 class="record-date">@record.DatePerformed.ToString("dd / MMM / yyyy")</h3>
+							<div class="record-controls-container">
+								<button class="record-button edit-button">
+									<img class="record-button-icon" src="~/Content/assets/icons/edit.svg" alt="edit" />
+								</button>
+								<button class="record-button view-button">
+									<img class="record-button-icon" src="~/Content/assets/icons/view.svg" alt="view" />
+								</button>
+							</div>
+						</li>
+					}
+				}
+				else
+				{
+					<li id="not-found-message-container">
+						<h3 id="not-found-message">No Medical Records Found</h3>
 					</li>
 				}
+
 
 				<!-- Add links to buttons with route control -->
 			</ul>
