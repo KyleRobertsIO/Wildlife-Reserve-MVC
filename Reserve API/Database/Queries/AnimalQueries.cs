@@ -8,6 +8,11 @@ using System.Web;
 
 namespace Reserve_API.Database.Queries
 {
+
+    /*
+        Author: Kyle 
+    */
+
     public class AnimalQueries
     {
 

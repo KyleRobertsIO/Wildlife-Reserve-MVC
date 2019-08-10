@@ -10,6 +10,11 @@ using Reserve_API.Database.Queries;
 
 namespace Reserve_API.Controllers
 {
+
+    /*
+        Author: Kyle 
+    */
+
     public class AnimalsController : ApiController
     {
 

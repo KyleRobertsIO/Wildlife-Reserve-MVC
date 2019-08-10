@@ -6,6 +6,7 @@
 
 <html>
 <head>
+	<!-- Author: Kyle Roberts -->
 	<meta name="viewport" content="width=device-width" />
 	<link rel="stylesheet" type="text/css" href="~/Content/css/reset.css">
 	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
@@ -24,12 +25,19 @@
 
 			<h1 id="form-title">Add Creature</h1>
 
+			@if (ViewBag.ErrorMessage != null)
+			{
+				<div id="error-message-container">
+					<h3 id="error-message">@ViewBag.ErrorMessage</h3>
+				</div>
+			}
+
 			<h3 class="form-field-label">Nickname:</h3>
 			<input class="form-text-field" type="text" name="Nickname" placeholder="Nickname" />
 
 			<h3 class="form-field-label">Species:</h3>
 			<select class="form-select" id="species-dropdown" name="SpeciesID">
-				@foreach(KeyValuePair<int, string> species in ViewBag.SpeciesDictionary)
+				@foreach (KeyValuePair<int, string> species in ViewBag.SpeciesDictionary)
 				{
 					<option value="@species.Key">@species.Value</option>
 				}

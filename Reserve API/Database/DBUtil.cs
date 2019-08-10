@@ -9,6 +9,11 @@ using System.Web.Configuration;
 
 namespace Reserve_API.Database
 {
+
+    /*
+        Author: Kyle 
+    */
+
     public class DBUtil
     {
 

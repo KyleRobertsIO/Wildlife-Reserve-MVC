@@ -5,6 +5,11 @@ using System.Web;
 
 namespace Reserve_API.Models
 {
+
+    /*
+        Author: Kyle 
+    */
+
     public class AnimalPhoto
     {
 

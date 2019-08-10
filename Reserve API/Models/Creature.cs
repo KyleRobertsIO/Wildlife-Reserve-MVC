@@ -5,6 +5,10 @@ using System.Web;
 
 namespace Reserve_API.Models
 {
+
+    /*
+        Author: Huma 
+    */
     public class Creature
     {
 

@@ -165,7 +165,6 @@
     <Compile Include="Controllers\AnimalsController.cs" />
     <Compile Include="Controllers\CreaturesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Database\DBUtil.cs" />
     <Compile Include="Database\Queries\AnimalQueries.cs" />
     <Compile Include="Database\Queries\CreatureQueries.cs" />
@@ -177,7 +176,6 @@
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\AnimalDescription.cs" />
     <Compile Include="Models\AnimalPhoto.cs" />
-    <Compile Include="Models\Animals.cs" />
     <Compile Include="Models\Creature.cs" />
     <Compile Include="Models\MedicalRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

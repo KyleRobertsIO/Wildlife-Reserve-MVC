@@ -1,4 +1,8 @@
-﻿function mobileDropdownToggle() {
+﻿/*
+    Author: Kyle Roberts
+*/
+
+function mobileDropdownToggle() {
     let menu = document.getElementById('mobile-dropdown-menu');
     if (menu.style.display === "block") {
         menu.style.display = "none";

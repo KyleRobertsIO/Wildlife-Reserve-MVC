@@ -5,6 +5,15 @@
 	flex-direction: column;
 }
 
+#error-message-container {
+	border-radius: 5px;
+	font-weight: 600;
+	font-size: 20px;
+	padding: 15px;
+	background-color: #d73838;
+	color: #fff;
+}
+
 #form-title{
 	font-weight: 900;
 	font-size: 40px;

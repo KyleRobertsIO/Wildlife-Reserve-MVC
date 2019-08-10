@@ -6,9 +6,14 @@ using System.Web;
 
 namespace Reserve_API.Models
 {
+
+    /*
+        Author: Kyle
+    */
+
     public class Animal
     {
-
+        
         private List<AnimalPhoto> _photoList = new List<AnimalPhoto>();
 
         [Required]

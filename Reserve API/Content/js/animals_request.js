@@ -1,4 +1,8 @@
-﻿fetch('/api/animals')
+﻿/*
+    Author: Kyle Roberts 
+*/
+
+fetch('/api/animals')
     .then(function(response){
         return response.json();
     })

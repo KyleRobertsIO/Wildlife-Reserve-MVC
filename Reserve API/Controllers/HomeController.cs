@@ -11,6 +11,11 @@ using System.Web.Mvc;
 
 namespace Reserve_API.Controllers
 {
+
+    /*
+        Author: Kyle 
+    */
+
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -224,7 +229,7 @@ namespace Reserve_API.Controllers
                     }
                     else
                     {
-                        // error message
+                        TempData["ErrorMessage"] = "The creature provided can't be inserted at this time.";
                         return RedirectToAction("Creature_Add");
                     }
                 }
@@ -237,6 +242,40 @@ namespace Reserve_API.Controllers
             else
             {
                 return RedirectToAction("Login");
+            }
+        }
+
+        public ActionResult MedicalRecord(int id)
+        {
+            MedicalRecord medRecord = null;
+            DBUtil dbUtil = new DBUtil();
+            MySqlDataAdapter adp = dbUtil.getConnectionSelect(
+                $"SELECT * FROM creature_with_medical_records WHERE record_id = '{id}'",
+                "wildlife_reserve"
+            );
+            DataTable recordTable = new DataTable();
+            adp.Fill(recordTable);
+            if (recordTable.Rows.Count > 0)
+            {
+                DataRow row = recordTable.Rows[0];
+                int recordId = int.Parse(row["record_id"].ToString());
+                string vetName = row["vet_name"].ToString();
+                string description = row["procedure_desc"].ToString();
+                DateTime datePerformed = DateTime.Parse(
+                    row["date_performed"].ToString()
+                );
+                medRecord = new MedicalRecord(
+                    recordId,
+                    vetName,
+                    description,
+                    datePerformed
+                );
+                string nickname = row["nickname"].ToString();
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "The medical record requested can't be found.";
+                return RedirectToAction("Error");
             }
         }
 

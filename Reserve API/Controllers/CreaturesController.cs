@@ -9,6 +9,11 @@ using System.Web.Http;
 
 namespace Reserve_API.Controllers
 {
+
+    /*
+        Author: Kyle 
+    */
+
     public class CreaturesController : ApiController
     {
         

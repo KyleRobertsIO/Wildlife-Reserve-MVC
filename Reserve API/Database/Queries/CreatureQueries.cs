@@ -8,9 +8,10 @@ using System.Web;
 
 namespace Reserve_API.Database.Queries
 {
+
     public class CreatureQueries
     {
-
+        // Kyle
         public List<Creature> SelectAllCreatures()
         {
             List<Creature> creatureList = new List<Creature>();
@@ -55,6 +56,8 @@ namespace Reserve_API.Database.Queries
             return creatureList;
         }
 
+
+        // Kyle
         public Creature SelectCreatureById(int id)
         {
             Creature creature = null;
@@ -103,6 +106,7 @@ namespace Reserve_API.Database.Queries
             return creature;
         }
 
+        // Kyle
         public bool DeleteCreature(int id)
         {
             bool result = false;
@@ -114,6 +118,8 @@ namespace Reserve_API.Database.Queries
             return result;
         }
 
+
+        // Kyle
         public bool AddCreature(string nickname, int speciesId)
         {
             bool result = false;
@@ -123,6 +129,15 @@ namespace Reserve_API.Database.Queries
                 "wildlife_reserve");
             return result;
         }
-
+		
+        // Huma
+		public bool UpdateCreature(string nickname, int creatureId, int speciesId)
+        {
+            DBUtil dbUtil = new DBUtil();
+            bool result = dbUtil.getConnectionUpdate($"UPDATE creatures SET nickname = '{nickname}', species_id = {speciesId} WHERE record_id = {creatureId}",
+                "wildlife_reserve");
+            return result;
+        }
+		
     }
 }
