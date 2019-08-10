@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<!-- Author: Kyle Roberts -->
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" type="text/css" href="~/Content/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/forms.css">
+	<title>Reverse - @ViewBag.Title</title>
+</head>
+<body>
+
+	@{
+		Html.RenderPartial("Main_Navigation_Bar");
+	}
+
+	<div id="page-container">
+
+		<form id="form-container" action="/home/Edit_Medical_Record_Update" method="POST">
+
+			<h1 id="form-title">Editing Medical Record</h1>
+
+			<input type="hidden" name="RecordID" value="@Model.RecordID" />
+
+			<h3 class="form-field-label">Veterinarian:</h3>
+			<input class="form-text-field" type="text" name="Veterinarian" value="@Model.Veterinarian" maxlength="100" />
+
+			<h3 class="form-field-label">Procedure Description:</h3>
+			<textarea id="procedure" class="form-textarea-field" name="ProcedureDescription" maxlength="1000">
+			</textarea>
+
+			<button id="form-submit-button" type="submit">Update</button>
+
+		</form>
+
+	</div>
+
+	<script>
+		document.getElementById("procedure").innerText = "@Model.ProcedureDescription";
+	</script>
+
+</body>
+</html>

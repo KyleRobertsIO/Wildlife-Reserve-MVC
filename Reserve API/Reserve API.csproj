@@ -209,6 +209,7 @@
     <Content Include="Content\css\loading.css" />
     <Content Include="Content\css\login.css" />
     <Content Include="Content\css\main.css" />
+    <Content Include="Content\css\medicalRecord.css" />
     <Content Include="Content\css\navigation.css" />
     <Content Include="Content\css\reset.css" />
     <Content Include="Content\js\animals_request.js" />
@@ -274,6 +275,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Views\Home\Medical_Record.cshtml" />
+    <Content Include="Views\Home\Edit_Medical_Record.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

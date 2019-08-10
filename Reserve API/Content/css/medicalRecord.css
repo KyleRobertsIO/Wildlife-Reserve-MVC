@@ -1,0 +1,59 @@
+﻿#page-container {
+	min-height: calc(100vh - 80px);
+	width: calc(100% - 140px);
+	padding: 40px;
+	font-family: 'Lato', sans-serif;
+}
+
+
+#medical-record-title{
+	font-size: 50px;
+	font-weight: 900;
+	margin: 0px 0px 20px 0px;
+}
+
+#patient-name{
+	font-size: 25px;
+	font-weight: 600;
+	margin: 0px 0px 20px 0px;
+}
+
+#detail-container{
+	display: flex;
+	font-size: 20px;
+	margin: 0px 0px 40px 0px;
+}
+
+#vet-name{
+	margin: 0px 20px 0px 0px;
+}
+
+#procedure{
+	font-size: 20px;
+}
+
+@media only screen and (max-width: 550px){
+	#medical-record-title{
+		font-size: 35px;
+	}
+
+	#detail-container{
+		flex-direction: column;
+	}
+
+	#vet-name {
+		margin: 0px 0px 20px 0px;
+	}
+}
+
+@media only screen and (max-width: 450px){
+	#page-container {
+		padding: 40px 20px;
+		min-height: calc(100vh - 140px);
+		width: calc(100% - 40px);
+	}
+
+	#procedure{
+		font-size: 18px;
+	}
+}

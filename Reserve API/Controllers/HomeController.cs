@@ -108,7 +108,7 @@ namespace Reserve_API.Controllers
             }
         }
 
-        [HttpPut]
+        [HttpPost]
         public ActionResult Edit_Animal_Update(int SpeciesID, int Population, string ShortDesc, string LongDesc)
         {
 
@@ -139,6 +139,7 @@ namespace Reserve_API.Controllers
                 Creature creature = cq.SelectCreatureById(id);
                 if (creature != null)
                 {
+                    ViewBag.Title = $"{creature.Nickname} | {creature.Species}";
                     return View(creature);
                 }
                 else
@@ -245,7 +246,7 @@ namespace Reserve_API.Controllers
             }
         }
 
-        public ActionResult MedicalRecord(int id)
+        public ActionResult Medical_Record(int id)
         {
             MedicalRecord medRecord = null;
             DBUtil dbUtil = new DBUtil();
@@ -271,11 +272,58 @@ namespace Reserve_API.Controllers
                     datePerformed
                 );
                 string nickname = row["nickname"].ToString();
+                ViewBag.Nickname = nickname;
+                return View("Medical_Record", medRecord);
             }
             else
             {
                 TempData["ErrorMessage"] = "The medical record requested can't be found.";
                 return RedirectToAction("Error");
+            }
+        }
+
+        public ActionResult Edit_Medical_Record(int id)
+        {
+            if(Session["Username"] != null)
+            {
+                try
+                {
+                    MedicalRecordQueries mrq = new MedicalRecordQueries();
+                    MedicalRecord record = mrq.SelectMedicalRecordById(id);
+                    return View(record);
+                }
+                catch (Exception e)
+                {
+                    TempData["ErrorMessage"] = "The requested medical record can't be found.";
+                    return RedirectToAction("Error");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Edit_Medical_Record_Update(int RecordID, string Veterinarian, string ProcedureDescription)
+        {
+            if(Session["Username"] != null)
+            {
+                bool result = new MedicalRecordQueries().UpdateMedicalRecord(RecordID, Veterinarian, ProcedureDescription);
+
+                if (result == false)
+                {
+                    TempData["ErrorMessage"] = "The edit you requested can't be performed. Please contact your administrator.";
+                    return RedirectToAction("Error");
+                }
+                else
+                {
+                    return RedirectToAction("Creatures");
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login");
             }
         }
 

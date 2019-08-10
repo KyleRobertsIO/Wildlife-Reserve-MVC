@@ -80,22 +80,20 @@ namespace Reserve_API.Database.Queries
                 "wildlife_reserve");
             return result;
         }
-		
-		//Huma
-        public bool UpdateMedicalRecord(int recordId, string vetName, string procedureDescription, string datePerformed, int creatureId)
+
+        //Huma
+        public bool UpdateMedicalRecord(int recordId, string vetName, string procedureDescription)
         {
             DBUtil dbUtil = new DBUtil();
             bool result = dbUtil.getConnectionUpdate(
-                $"UPDATE medical_records SET creature_id = {creatureId}, " +
-                $"vet_name = '{vetName}', procedure_desc = '{procedureDescription}', " +
-                $"date_performed = '{datePerformed}' WHERE record_id = {recordId}",
+                $"UPDATE medical_records SET vet_name = '{vetName}', procedure_desc = '{procedureDescription}' " +
+                $"WHERE record_id = {recordId}",
                 "wildlife_reserve"
             );
-
             return result;
         }
-		
-		// Huma
+
+        // Huma
         public bool DeleteMedicalRecord(int id)
         {
             bool result = false;

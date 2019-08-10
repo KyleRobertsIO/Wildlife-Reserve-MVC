@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<!-- Author: Kyle Roberts -->
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" type="text/css" href="~/Content/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/main.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="~/Content/css/medicalRecord.css">
+	<title>Reverse - @ViewBag.Title</title>
+</head>
+<body>
+
+	@{
+		Html.RenderPartial("Main_Navigation_Bar");
+	}
+
+	<div id="page-container">
+		<h1 id="medical-record-title">Medical Record</h1>
+
+		<h2 id="patient-name">Patient: @ViewBag.Nickname</h2>
+
+		<div id="detail-container">
+			<h2 id="vet-name">Veterinarian:
+				@Model.Veterinarian
+			</h2>
+			<h2 id="date-performed">Date:
+				@Model.DatePerformed.ToString("dd/MM/yyyy")
+			</h2>
+		</div>
+
+		<span id="procedure">
+			@Model.ProcedureDescription
+		</span>
+
+	</div>
+</body>
+</html>

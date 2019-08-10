@@ -23,11 +23,9 @@
 
 	<div id="page-container">
 
-		<form id="form-container" action="/home/edit_animal_update" method="POST">
+		<form id="form-container" action="/home/Edit_Animal_Update" method="POST">
 
 			<h1 id="form-title">Editing @Model.Species</h1>
-
-			@Html.ValidationSummary(true)
 
 			<input type="hidden" name="SpeciesID" value="@Model.SpeciesID" />
 
