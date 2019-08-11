@@ -17,6 +17,11 @@ namespace Reserve_API.Database
     public class DBUtil
     {
 
+        /// <summary>
+        /// Building MySQL connection string from Web.config file parameters
+        /// </summary>
+        /// <param name="dbName">Database Name</param>
+        /// <returns>MySQL connection string</returns>
         public string getConnectionString(string dbName)
         {
             string server = WebConfigurationManager.AppSettings["dbServer"];
@@ -74,6 +79,12 @@ namespace Reserve_API.Database
             }
         }
 
+        /// <summary>
+        /// Executes INSERT, UPDATE, DELETE
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="dbName"></param>
+        /// <returns>Successful or not</returns>
         public bool getConnectionExecute(string query, string dbName)
         {
             try
